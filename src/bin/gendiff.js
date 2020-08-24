@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const program = require('commander');
+import program from 'commander';
 
 program
     .version('0.0.1')
@@ -8,4 +8,10 @@ program
     .arguments('<filepath1> <filepath2>')
     .helpOption('-h, --help', 'output usage information')
     .option('-f, --format [type]', 'output format')
+    //.action((filepath1, filepath2) => {
+    //    console.log(genDiff(filepath1, filepath2, program.format));
+    //});
+    //program
     .parse(process.argv);
+
+if (!program.args.length) program.help();
